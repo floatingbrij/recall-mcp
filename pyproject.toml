@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "recall-mcp"
+version = "0.1.0"
+description = "Conversation Replay Index + Decision Log + Stale Context Detector, exposed as an MCP server."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "floatingbrij" }]
+keywords = ["mcp", "model-context-protocol", "copilot", "memory", "rag", "agent"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "typer>=0.12",
+    "rich>=13.7",
+    "pydantic>=2.6",
+    "gitpython>=3.1.43",
+    "watchdog>=4.0",
+    "fastembed>=0.3.6",
+    "sqlite-vec>=0.1.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/floatingbrij/recall-mcp"
+Repository = "https://github.com/floatingbrij/recall-mcp"
+Issues = "https://github.com/floatingbrij/recall-mcp/issues"
+
+[project.optional-dependencies]
+llm = ["openai>=1.40"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+recall = "recall.cli:app"
+recall-mcp = "recall.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/recall"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,6 @@
+**/*.ts
+**/*.map
+src/**
+tsconfig.json
+.vscode-test/
+node_modules/.cache/

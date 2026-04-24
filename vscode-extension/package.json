@@ -1,0 +1,87 @@
+{
+  "name": "recall-mcp",
+  "displayName": "recall — Conversation Replay + Decision Log + Stale Context",
+  "description": "Local-first MCP server giving Copilot/agents memory across sessions: searchable chat history, auto-extracted decisions, and stale-file detection.",
+  "version": "0.1.0",
+  "publisher": "floatingbrij",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "AI",
+    "Chat",
+    "Other"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "copilot",
+    "memory",
+    "rag",
+    "agent",
+    "decisions",
+    "context"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/floatingbrij/recall-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/floatingbrij/recall-mcp/issues"
+  },
+  "homepage": "https://github.com/floatingbrij/recall-mcp#readme",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "recall.mcpProvider",
+        "label": "recall"
+      }
+    ],
+    "commands": [
+      {
+        "command": "recall.checkInstall",
+        "title": "recall: Check Python install",
+        "category": "recall"
+      },
+      {
+        "command": "recall.installPip",
+        "title": "recall: Install / upgrade via pip",
+        "category": "recall"
+      }
+    ],
+    "configuration": {
+      "title": "recall",
+      "properties": {
+        "recall.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to a Python executable that has 'recall-mcp' installed. Leave empty to auto-detect."
+        },
+        "recall.dbPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the recall SQLite DB. Defaults to <workspace>/.recall/recall.db."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.4.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}

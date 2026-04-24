@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "recall": {
+      "command": "recall-mcp",
+      "env": {
+        "RECALL_DB": "${workspaceFolder}/.recall/recall.db"
+      }
+    }
+  }
+}
