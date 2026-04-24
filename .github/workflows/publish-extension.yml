@@ -22,8 +22,8 @@ jobs:
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
         run: npx --yes @vscode/vsce publish --no-dependencies
-      - name: Publish to Open VSX (optional)
-        if: env.OVSX_PAT != ''
+      - name: Publish to Open VSX (Cursor / VSCodium)
+        if: ${{ secrets.OVSX_PAT != '' }}
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
         run: npx --yes ovsx publish --no-dependencies
