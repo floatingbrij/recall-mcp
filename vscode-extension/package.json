@@ -3,9 +3,8 @@
   "displayName": "recall — Conversation Replay + Decision Log + Stale Context",
   "description": "Local-first MCP server giving Copilot/agents memory across sessions: searchable chat history, auto-extracted decisions, and stale-file detection.",
   "version": "0.1.0",
-  "publisher": "floatingbrij",
+  "publisher": "BrijesharunG",
   "license": "MIT",
-  "icon": "icon.png",
   "engines": {
     "vscode": "^1.95.0"
   },
